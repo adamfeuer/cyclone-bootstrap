@@ -1,3 +1,4 @@
 install:
+	env
 	chmod 0755 /usr/local/lib
 	chmod g+w /usr/local/lib
