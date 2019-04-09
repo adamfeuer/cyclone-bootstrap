@@ -70,10 +70,6 @@ install:
 #make install-libs
 #make install-cyclone
 #install-deps:
-	mkdir -p $(DESTDIR)$(LIBDIR)
-	whoami
-	which chmod
-	chmod 0755 $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
 	$(MKDIR) $(DESTDIR)$(DATADIR)
@@ -81,26 +77,26 @@ install:
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi/list-queues
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi/sorting
-	$(INSTALL) -m0644 include/cyclone/*.h $(DESTDIR)$(INCDIR)/
-	$(INSTALL) -m0644 scheme/*.sld $(DESTDIR)$(DATADIR)/scheme
-	$(INSTALL) -m0644 scheme/cyclone/*.sld $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 srfi/*.sld $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0644 srfi/list-queues/*.scm $(DESTDIR)$(DATADIR)/srfi/list-queues
-	$(INSTALL) -m0644 srfi/sorting/*.scm $(DESTDIR)$(DATADIR)/srfi/sorting
+	$(INSTALL) $(FILE_PERMISSIONS) include/cyclone/*.h $(DESTDIR)$(INCDIR)/
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/*.sld $(DESTDIR)$(DATADIR)/scheme
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/*.sld $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/*.sld $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/list-queues/*.scm $(DESTDIR)$(DATADIR)/srfi/list-queues
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/sorting/*.scm $(DESTDIR)$(DATADIR)/srfi/sorting
 #install-libs:
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
-	$(INSTALL) -m0644 libcyclone.a $(DESTDIR)$(LIBDIR)/
+	$(INSTALL) $(FILE_PERMISSIONS) libcyclone.a $(DESTDIR)$(LIBDIR)/
 #install-cyclone:
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(DATADIR)/scheme/cyclone
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0755 cyclone $(DESTDIR)$(BINDIR)/
-	$(INSTALL) -m0644 scheme/*.o $(DESTDIR)$(DATADIR)/scheme
-	$(INSTALL) -m0644 scheme/cyclone/*.o $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 srfi/*.o $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0755 scheme/*.so $(DESTDIR)$(DATADIR)/scheme
-	$(INSTALL) -m0755 scheme/cyclone/*.so $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0755 srfi/*.so $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(DIR_PERMISSIONS) cyclone $(DESTDIR)$(BINDIR)/
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/*.o $(DESTDIR)$(DATADIR)/scheme
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/*.o $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/*.o $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(DIR_PERMISSIONS) scheme/*.so $(DESTDIR)$(DATADIR)/scheme
+	$(INSTALL) $(DIR_PERMISSIONS) scheme/cyclone/*.so $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(DIR_PERMISSIONS) srfi/*.so $(DESTDIR)$(DATADIR)/srfi
 #install:
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
@@ -110,27 +106,27 @@ install:
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi/list-queues
 	$(MKDIR) $(DESTDIR)$(DATADIR)/srfi/sorting
-	$(INSTALL) -m0755 cyclone $(DESTDIR)$(BINDIR)/
-	$(INSTALL) -m0755 icyc $(DESTDIR)$(BINDIR)/
-	$(INSTALL) -m0644 libcyclone.a $(DESTDIR)$(LIBDIR)/
-	$(INSTALL) -m0644 include/cyclone/*.h $(DESTDIR)$(INCDIR)/
-	$(INSTALL) -m0644 scheme/*.sld $(DESTDIR)$(DATADIR)/scheme
-	$(INSTALL) -m0644 scheme/*.o $(DESTDIR)$(DATADIR)/scheme
-	$(INSTALL) -m0755 scheme/*.so $(DESTDIR)$(DATADIR)/scheme
-	$(INSTALL) -m0644 scheme/cyclone/*.sld $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 scheme/cyclone/*.scm $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 scheme/cyclone/test.meta $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 scheme/cyclone/match.meta $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 scheme/cyclone/array-list.meta $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 scheme/cyclone/*.o $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0755 scheme/cyclone/*.so $(DESTDIR)$(DATADIR)/scheme/cyclone
-	$(INSTALL) -m0644 srfi/*.sld $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0644 srfi/*.scm $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0644 srfi/list-queues/*.scm $(DESTDIR)$(DATADIR)/srfi/list-queues
-	$(INSTALL) -m0644 srfi/sorting/*.scm $(DESTDIR)$(DATADIR)/srfi/sorting
-	$(INSTALL) -m0644 srfi/*.meta $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0644 srfi/*.o $(DESTDIR)$(DATADIR)/srfi
-	$(INSTALL) -m0755 srfi/*.so $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(DIR_PERMISSIONS) cyclone $(DESTDIR)$(BINDIR)/
+	$(INSTALL) $(DIR_PERMISSIONS) icyc $(DESTDIR)$(BINDIR)/
+	$(INSTALL) $(FILE_PERMISSIONS) libcyclone.a $(DESTDIR)$(LIBDIR)/
+	$(INSTALL) $(FILE_PERMISSIONS) include/cyclone/*.h $(DESTDIR)$(INCDIR)/
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/*.sld $(DESTDIR)$(DATADIR)/scheme
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/*.o $(DESTDIR)$(DATADIR)/scheme
+	$(INSTALL) $(DIR_PERMISSIONS) scheme/*.so $(DESTDIR)$(DATADIR)/scheme
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/*.sld $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/*.scm $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/test.meta $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/match.meta $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/array-list.meta $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) scheme/cyclone/*.o $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(DIR_PERMISSIONS) scheme/cyclone/*.so $(DESTDIR)$(DATADIR)/scheme/cyclone
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/*.sld $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/*.scm $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/list-queues/*.scm $(DESTDIR)$(DATADIR)/srfi/list-queues
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/sorting/*.scm $(DESTDIR)$(DATADIR)/srfi/sorting
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/*.meta $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(FILE_PERMISSIONS) srfi/*.o $(DESTDIR)$(DATADIR)/srfi
+	$(INSTALL) $(DIR_PERMISSIONS) srfi/*.so $(DESTDIR)$(DATADIR)/srfi
 
 uninstall:
 	$(RM) $(DESTDIR)$(BINDIR)/cyclone
