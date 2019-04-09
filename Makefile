@@ -70,7 +70,7 @@ install:
 #make install-libs
 #make install-cyclone
 #install-deps:
-    makdir -p $(DESTDIR)$(LIBDIR)
+	mkdir -p $(DESTDIR)$(LIBDIR)
 	chmod 0755 $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
