@@ -71,6 +71,7 @@ install:
 #make install-cyclone
 #install-deps:
 	mkdir -p $(DESTDIR)$(LIBDIR)
+	whoami
 	chmod 0755 $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
