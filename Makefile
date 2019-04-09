@@ -72,6 +72,7 @@ install:
 #install-deps:
 	mkdir -p $(DESTDIR)$(LIBDIR)
 	whoami
+	which chmod
 	chmod 0755 $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
